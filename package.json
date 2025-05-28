@@ -160,5 +160,14 @@
     "languages": "kotlin-objc",
     "type": "turbo-module",
     "version": "0.50.3"
+  },
+  "dependencies": {
+    "@react-native-community/netinfo": "^11.4.1",
+    "@react-native-cookies/cookies": "^6.2.1",
+    "axios": "^1.9.0",
+    "expo-device": "^7.1.4",
+    "react-native-device-info": "^14.0.4",
+    "react-native-localize": "^3.4.1",
+    "uuid": "^11.1.0"
   }
 }
