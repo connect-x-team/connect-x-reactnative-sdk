@@ -1,6 +1,6 @@
 {
   "name": "connect-x-react-native-sdk",
-  "version": "1.1.0",
+  "version": "1.0.5",
   "description": "for Connect X Tracking",
   "main": "lib/commonjs/index.js",
   "types": "lib/typescript/src/index.d.ts",
@@ -80,6 +80,7 @@
     "prettier": "^3.0.3",
     "react": "19.0.0",
     "react-native": "0.79.2",
+    "react-native-builder-bob": "^0.18.3",
     "release-it": "^17.10.0",
     "turbo": "^1.10.7",
     "typescript": "^5.8.3"
@@ -134,18 +135,9 @@
     "source": "src",
     "output": "lib",
     "targets": [
-      [
-        "module",
-        {
-          "esm": true
-        }
-      ],
-      [
-        "typescript",
-        {
-          "project": "tsconfig.build.json"
-        }
-      ]
+      "commonjs",
+      "module",
+      "typescript"
     ]
   },
   "codegenConfig": {

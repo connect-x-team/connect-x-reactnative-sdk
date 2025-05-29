@@ -11,12 +11,9 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
-    "lib": [
-      "ESNext"
-    ],
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "noEmit": true,
+    // "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noImplicitUseStrict": false,
@@ -25,9 +22,21 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
     "target": "ESNext",
-    "verbatimModuleSyntax": true
-  }
+    "verbatimModuleSyntax": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "declaration": true,
+    // "emitDeclarationOnly": true,
+    // "declarationDir": "lib/typescript",
+    "outDir": "lib/typescript",
+    // "rootDir": "src",
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src"
+  ]
 }

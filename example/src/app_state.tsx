@@ -1,4 +1,4 @@
-import ConnectXMobileSdk from 'connect-x-react-native-sdk';
+import { ConnectXMobileSdk } from 'connect-x-react-native-sdk';
 import { useEffect, useRef } from 'react';
 import { AppState, type AppStateStatus } from 'react-native';
 
