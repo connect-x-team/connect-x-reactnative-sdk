@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import ConnectXMobileSdk from 'connect-x-react-native-sdk';
 import DeviceInfo from 'react-native-device-info';
 import AppStateHandler from './app_state';
 import {
@@ -14,6 +13,7 @@ import {
 import UserInputModal from './drop_form';
 import MyFormModal from './open_ticket';
 import ObjectInputModal from './create_object';
+import ConnectXMobileSdk from 'connect-x-react-native-sdk';
 
 const GetUnknownIdExample = () => {
   const [unknownId, setUnknownId] = useState<string | null>(null);
