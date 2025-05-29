@@ -16,7 +16,7 @@ const ObjectInputModal = () => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setModalVisible(false);
     // Handle form submission
     const formData = {
@@ -29,13 +29,14 @@ const ObjectInputModal = () => {
       cx_title: 'Submit Create Record',
       cx_event: 'Create Record',
     });
-    ConnectXMobileSdk.cxCreateRecords(object, [
+    var result = await ConnectXMobileSdk.cxCreateRecords(object, [
       {
         attributes: { referenceId: 'www1' },
         cx_Name: name,
         docId: docId,
       },
     ]);
+    console.log('Create Record Response:', result);
     // Reset form
     setObject('');
     setName('');

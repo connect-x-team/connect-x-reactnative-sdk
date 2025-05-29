@@ -21,7 +21,7 @@ const GetUnknownIdExample = () => {
 
   // Call getUnknownId
   const fetchUnknownId = async () => {
-    ConnectXMobileSdk.cxTracking({
+    await ConnectXMobileSdk.cxTracking({
       cx_title: 'GetUnknownIdExample',
       cx_event: 'Get Unknown Id',
     });

@@ -5,6 +5,8 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
+	<key>DebugSymbolsPath</key>
+-	<string>dSYMs</string>
 	<string>ConnectXReactNativeSdkExample</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>

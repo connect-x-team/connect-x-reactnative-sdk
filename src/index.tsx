@@ -184,8 +184,6 @@ class ConnectXMobileSdk {
   }
 
   private async cxPost(endpoint: string, data: any): Promise<void> {
-    console.log('cxPost data:', data);
-    console.log('cxPost endpoint:', `${this.apiDomain}${endpoint}`);
     await this.axiosInstance
       .post(`${this.apiDomain}${endpoint}`, data, {
         headers: {
@@ -283,11 +281,14 @@ class ConnectXMobileSdk {
   public static async cxCreateRecords(
     objectName: string,
     bodies: Record<string, any>[]
-  ): Promise<boolean> {
+  ): Promise<any> {
     const instance = ConnectXMobileSdk.getInstance();
     try {
-      await instance.cxPost(`/object/${objectName}/composite`, bodies);
-      return true;
+      var res = await instance.cxPost(
+        `/object/${objectName}/composite`,
+        bodies
+      );
+      return res;
     } catch (error) {
       console.error('Error in createObject:', error);
       throw error;
