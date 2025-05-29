@@ -1,7 +1,5 @@
 # connect-x-react-native-sdk
 
-for Connect X Tracking
-
 The **ConnectX React Native SDK** is a React Native library designed to simplify the integration of ConnectX's tracking and data management features into your mobile applications. It provides functionalities for tracking events, managing user data, and interacting with backend APIs, ensuring seamless user analytics and experience tracking.
 
 ---
@@ -22,6 +20,10 @@ The **ConnectX React Native SDK** is a React Native library designed to simplify
 
 ```sh
 npm install connect-x-react-native-sdk
+
+#or
+
+yarn add connect-x-react-native-sdk
 ```
 
 ## Usage
