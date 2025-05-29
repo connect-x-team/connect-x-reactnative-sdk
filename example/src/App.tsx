@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ConnectXMobileSdk from 'connect-x-react-native-sdk';
 import DeviceInfo from 'react-native-device-info';
+import AppStateHandler from './app_state';
 import {
   View,
   Text,
@@ -17,20 +18,6 @@ import ObjectInputModal from './create_object';
 const GetUnknownIdExample = () => {
   const [unknownId, setUnknownId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-
-  //Initialize the SDK
-  // const initializeSdk = async () => {
-  //   try {
-  //     setIsLoading(true);
-  //     await ConnectXMobileSdk.initialize('YOUR_API_TOKEN', 'YOUR_ORG_ID');
-  //     setIsSdkInitialized(true);
-  //     Alert.alert('Success', 'SDK initialized successfully');
-  //   } catch (error) {
-  //     Alert.alert('Error', `Failed to initialize SDK: ${error}`);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
 
   // Call getUnknownId
   const fetchUnknownId = async () => {
@@ -55,6 +42,8 @@ const GetUnknownIdExample = () => {
       <Text style={styles.instructions}>
         DeviceInfo: {DeviceInfo.getApplicationName()}
       </Text>
+
+      <AppStateHandler />
 
       {/* <View style={styles.buttonContainer}>
         <Button

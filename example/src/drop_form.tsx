@@ -7,12 +7,20 @@ const UserInputModal = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
+  const showModal = () => {
+    setModalVisible(true);
+    ConnectXMobileSdk.cxTracking({
+      cx_title: 'Open Drop Form Modal',
+      cx_event: 'Open Drop Form Modal',
+    });
+  };
+
   const handleSubmit = () => {
     setModalVisible(false);
     // Handle form submission here
     console.log('Name:', name, 'Email:', email);
     ConnectXMobileSdk.cxTracking({
-      cx_title: 'DropForm',
+      cx_title: 'Drop Form',
       cx_event: 'Submit Form',
     });
     ConnectXMobileSdk.cxIdentify({
@@ -51,7 +59,7 @@ const UserInputModal = () => {
 
   return (
     <View style={{ marginVertical: 10 }}>
-      <Button title="Drop Form" onPress={() => setModalVisible(true)} />
+      <Button title="Drop Form" onPress={() => showModal()} />
 
       <Modal
         animationType="slide"
@@ -84,7 +92,13 @@ const UserInputModal = () => {
             <View style={styles.buttonContainer}>
               <Button
                 title="Cancel"
-                onPress={() => setModalVisible(false)}
+                onPress={() => {
+                  setModalVisible(false);
+                  ConnectXMobileSdk.cxTracking({
+                    cx_title: 'Cancel Drop Form',
+                    cx_event: 'Cancel Drop Form',
+                  });
+                }}
                 color="gray"
               />
               <Button

@@ -17,7 +17,19 @@ const MyFormModal = () => {
   const [email2, setEmail2] = useState('');
   const [content, setContent] = useState('');
 
+  const showModal = () => {
+    setModalVisible(true);
+    ConnectXMobileSdk.cxTracking({
+      cx_title: 'Open Ticket Modal',
+      cx_event: 'Open Ticket Modal',
+    });
+  };
+
   const handleSubmit = () => {
+    ConnectXMobileSdk.cxTracking({
+      cx_title: 'Submit Ticket',
+      cx_event: 'Submit Ticket',
+    });
     console.log('Submit:', { name, email1, email2, content });
     ConnectXMobileSdk.cxOpenTicket({
       key: 'cx_Name',
@@ -54,7 +66,7 @@ const MyFormModal = () => {
 
   return (
     <View style={{ marginVertical: 10 }}>
-      <Button title="Open Ticket" onPress={() => setModalVisible(true)} />
+      <Button title="Open Ticket" onPress={() => showModal()} />
 
       <Modal visible={modalVisible} animationType="slide" transparent>
         <View style={styles.modalBackground}>
@@ -96,7 +108,15 @@ const MyFormModal = () => {
             <Button title="Submit" onPress={handleSubmit} />
             <View style={{ marginVertical: 8 }} />
 
-            <TouchableOpacity onPress={() => setModalVisible(false)}>
+            <TouchableOpacity
+              onPress={() => {
+                setModalVisible(false);
+                ConnectXMobileSdk.cxTracking({
+                  cx_title: 'Close Ticket Modal',
+                  cx_event: 'Close Ticket Modal',
+                });
+              }}
+            >
               <Text style={styles.closeText}>Close</Text>
             </TouchableOpacity>
           </View>

@@ -8,6 +8,14 @@ const ObjectInputModal = () => {
   const [name, setName] = useState('');
   const [docId, setDocId] = useState('');
 
+  const showModal = () => {
+    setModalVisible(true);
+    ConnectXMobileSdk.cxTracking({
+      cx_title: 'Open Create Record Modal',
+      cx_event: 'Open Create Record Modal',
+    });
+  };
+
   const handleSubmit = () => {
     setModalVisible(false);
     // Handle form submission
@@ -17,6 +25,10 @@ const ObjectInputModal = () => {
       docId: docId.trim(),
     };
     console.log('Form Data:', formData);
+    ConnectXMobileSdk.cxTracking({
+      cx_title: 'Submit Create Record',
+      cx_event: 'Create Record',
+    });
     ConnectXMobileSdk.cxCreateRecords(object, [
       {
         attributes: { referenceId: 'www1' },
@@ -32,7 +44,7 @@ const ObjectInputModal = () => {
 
   return (
     <View style={{ marginVertical: 10 }}>
-      <Button title="Create Record" onPress={() => setModalVisible(true)} />
+      <Button title="Create Record" onPress={() => showModal()} />
 
       <Modal
         animationType="slide"
@@ -73,7 +85,13 @@ const ObjectInputModal = () => {
             <View style={styles.buttonContainer}>
               <Button
                 title="Cancel"
-                onPress={() => setModalVisible(false)}
+                onPress={() => {
+                  setModalVisible(false);
+                  ConnectXMobileSdk.cxTracking({
+                    cx_title: 'Cancel Create Record',
+                    cx_event: 'Cancel Create Record',
+                  });
+                }}
                 color="#6c757d"
               />
               <Button
