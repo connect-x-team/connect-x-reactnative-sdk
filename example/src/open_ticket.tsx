@@ -1,4 +1,5 @@
-import ConnectXMobileSdk from 'connect-x-react-native-sdk';
+// import ConnectXMobileSdk from 'connect-x-react-native-sdk';
+import { ConnectXMobileSdk } from 'connect-x-react-native-sdk';
 import { useState } from 'react';
 import {
   Modal,

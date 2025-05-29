@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import DeviceInfo from 'react-native-device-info';
 // import { useNetInfo } from '@react-native-community/netinfo';
 
-class ConnectXMobileSdk {
+export class ConnectXMobileSdk {
   private static instance: ConnectXMobileSdk;
   private token: string = '';
   private axiosInstance: AxiosInstance;
@@ -295,5 +295,3 @@ class ConnectXMobileSdk {
     }
   }
 }
-
-export default ConnectXMobileSdk;
