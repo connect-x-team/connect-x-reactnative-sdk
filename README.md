@@ -20,10 +20,11 @@ The **ConnectX React Native SDK** is a React Native library designed to simplify
 
 ```sh
 npm install connect-x-react-native-sdk
-
+npm install --save react-native-device-info
 #or
 
 yarn add connect-x-react-native-sdk
+yarn add react-native-device-info
 ```
 
 ## Usage
@@ -31,7 +32,7 @@ yarn add connect-x-react-native-sdk
 ### 1. Import the Library
 
 ```js
-import ConnectXMobileSdk from 'connect-x-react-native-sdk';
+import { ConnectXMobileSdk } from 'connect-x-react-native-sdk';
 
 ```
 ### 2. Initialize the SDK
@@ -59,7 +60,7 @@ AppRegistry.registerComponent(appName, () => App);
 ### 3. Track Events
 
 ```js
-import ConnectXMobileSdk from 'connect-x-react-native-sdk';
+import { ConnectXMobileSdk } from 'connect-x-react-native-sdk';
 
 await ConnectXMobileSdk.cxTracking({
   cx_title: 'YOUR_TRACKING_NAME',
@@ -72,7 +73,7 @@ await ConnectXMobileSdk.cxTracking({
 ### 4. Create Customer
 
 ```js
-import ConnectXMobileSdk from 'connect-x-react-native-sdk';
+import { ConnectXMobileSdk } from 'connect-x-react-native-sdk';
 
 await ConnectXMobileSdk.cxIdentify(
   {
@@ -122,7 +123,7 @@ await ConnectXMobileSdk.cxIdentify(
 ### 5. Open Tickets
 
 ```js
-import ConnectXMobileSdk from 'connect-x-react-native-sdk';
+import { ConnectXMobileSdk } from 'connect-x-react-native-sdk';
 
 await ConnectXMobileSdk.cxOpenTicket({
   key: 'cx_Name',
@@ -163,7 +164,7 @@ await ConnectXMobileSdk.cxOpenTicket({
 To create a new custom object, you must generate a unique referenceId to identify the record. If you pass a docId, the object is updated instead of being created.
 
 ```js
-import ConnectXMobileSdk from 'connect-x-react-native-sdk';
+import { ConnectXMobileSdk } from 'connect-x-react-native-sdk';
 
 var result = await ConnectXMobileSdk.cxCreateRecords(object, [ // limit 200 rows
   {
