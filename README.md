@@ -218,7 +218,7 @@ Expo Go **does not support** `react-native-device-info` directly. You need to us
 
 Follow this guide to get it working:
 
-https://medium.com/@amilaupendra5/accessing-device-information-with-react-native-device-info-library-in-expo-cc9861dafbaf
+[Link](https://medium.com/@amilaupendra5/accessing-device-information-with-react-native-device-info-library-in-expo-cc9861dafbaf)
 
 You’ll use `eas build` to create a custom Expo Dev Client that includes native modules like `react-native-device-info`.
 
