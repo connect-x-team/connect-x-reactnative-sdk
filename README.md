@@ -20,11 +20,10 @@ The **ConnectX React Native SDK** is a React Native library designed to simplify
 
 ```sh
 npm install connect-x-react-native-sdk
-npm install --save react-native-device-info
+
 #or
 
 yarn add connect-x-react-native-sdk
-yarn add react-native-device-info
 ```
 
 ## Usage
@@ -181,10 +180,11 @@ console.log('Create Record Response:', result);
 This method generates and returns a unique identifier.
 
 ```js
-import ConnectXMobileSdk from 'connect-x-react-native-sdk';
+import { ConnectXMobileSdk } from 'connect-x-react-native-sdk';
 
 const unknownId = await ConnectXMobileSdk.getUnknownId();
 ```
+
 
 ## License
 
