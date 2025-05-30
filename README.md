@@ -216,9 +216,7 @@ yarn add react-native-device-info
 
 Expo Go **does not support** `react-native-device-info` directly. You need to use a **custom development build**.
 
-Follow this guide to get it working:
-
-[Link](https://medium.com/@amilaupendra5/accessing-device-information-with-react-native-device-info-library-in-expo-cc9861dafbaf)
+Follow this guide to get it working: [Medium](https://medium.com/@amilaupendra5/accessing-device-information-with-react-native-device-info-library-in-expo-cc9861dafbaf)
 
 You’ll use `eas build` to create a custom Expo Dev Client that includes native modules like `react-native-device-info`.
 
