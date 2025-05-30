@@ -185,6 +185,43 @@ import { ConnectXMobileSdk } from 'connect-x-react-native-sdk';
 const unknownId = await ConnectXMobileSdk.getUnknownId();
 ```
 
+## 🛠 Fixing "RNDeviceInfo is null" Error
+
+If you encounter the following error:
+
+```sh
+Error: react-native-device-info: NativeModule.RNDeviceInfo is null
+```
+
+This means `react-native-device-info` is not properly linked or supported in your setup.
+
+### ✅ Solution
+
+### 🔹 If you're using Metro / Bare React Native:
+
+Install the package:
+
+```sh
+npm install --save react-native-device-info
+
+#or
+
+yarn add react-native-device-info
+```
+
+---
+
+### 🔹 If you're using Expo (Managed Workflow):
+
+Expo Go **does not support** `react-native-device-info` directly. You need to use a **custom development build**.
+
+Follow this guide to get it working:
+
+https://medium.com/@amilaupendra5/accessing-device-information-with-react-native-device-info-library-in-expo-cc9861dafbaf
+
+You’ll use `eas build` to create a custom Expo Dev Client that includes native modules like `react-native-device-info`.
+
+---
 
 ## License
 
