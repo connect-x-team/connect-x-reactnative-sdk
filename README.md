@@ -192,6 +192,7 @@ If you encounter the following error:
 ```sh
 Error: react-native-device-info: NativeModule.RNDeviceInfo is null
 ```
+![photo_2568-05-30 13 10 59](https://github.com/user-attachments/assets/07d3f4cd-05c7-4015-80d5-953d102b2562)
 
 This means `react-native-device-info` is not properly linked or supported in your setup.
 
