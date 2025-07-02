@@ -2,7 +2,7 @@ import { Platform, NativeModules } from 'react-native';
 import axios, { type AxiosInstance } from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import DeviceInfo from 'react-native-device-info';
-// import { useNetInfo } from '@react-native-community/netinfo';
+import NetInfo, { NetInfoStateType } from '@react-native-community/netinfo';
 
 export class ConnectXMobileSdk {
   private static instance: ConnectXMobileSdk;
@@ -14,6 +14,10 @@ export class ConnectXMobileSdk {
   private organizeId: string = '';
   // private deviceType: string = '';
   private domainPrefix: string = 'backend';
+  private networkType: { key: string; value: string } = {
+    key: 'Other',
+    value: 'other',
+  };
   // private netInfo = useNetInfo();
 
   private get apiDomain(): string {
@@ -27,6 +31,7 @@ export class ConnectXMobileSdk {
   private constructor() {
     this.axiosInstance = axios.create();
     this.setupInterceptors();
+    this.setupNetworkListener();
   }
 
   public static getInstance(): ConnectXMobileSdk {
@@ -81,6 +86,26 @@ export class ConnectXMobileSdk {
     });
   }
 
+  private formatNetworkType(type: NetInfoStateType): {
+    key: string;
+    value: string;
+  } {
+    if (!type || type === 'none' || type === 'unknown' || type === 'other') {
+      return { key: 'Other', value: 'other' };
+    }
+    // Capitalize the first letter for the key, and use the original for the value
+    const key = type.charAt(0).toUpperCase() + type.slice(1);
+    return { key, value: type };
+  }
+
+  // Method to set up network listener
+  private setupNetworkListener(): void {
+    NetInfo.addEventListener((state) => {
+      this.networkType = this.formatNetworkType(state.type);
+      console.log('Network type updated:', this.networkType);
+    });
+  }
+
   private getDeviceLanguage = () => {
     let locale;
 
@@ -126,10 +151,10 @@ export class ConnectXMobileSdk {
       cx_source: appName,
       cx_type: 'Mobile App',
       cx_deviceType: isTablet ? 'Tablet' : 'Mobile',
-      cx_networkType: '',
+      cx_networkType: this.networkType,
       cx_appVersion: appVersion,
       cx_appBuild: buildNumber,
-      cx_libraryVersion: '1.0.7',
+      cx_libraryVersion: '1.0.8',
       cx_libraryPlatform: 'React Native',
       cx_deviceId: uniqueId,
       cx_fingerprint: deviceId,
@@ -141,15 +166,6 @@ export class ConnectXMobileSdk {
 
     return clientData;
   }
-
-  // private getNetworkType = async () => {
-  //   if (Platform.OS === 'android') {
-  //     return await NativeModules.ConnectXReactNativeSdk.getNetworkType();
-  //   } else if (Platform.OS === 'ios') {
-  //     return await NativeModules.NetworkType.getNetworkType();
-  //   }
-  //   return 'unknown';
-  // };
 
   // private getDeviceType(): string {
   //   const { width } = Dimensions.get('window');

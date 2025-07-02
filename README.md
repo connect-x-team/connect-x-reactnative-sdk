@@ -19,11 +19,11 @@ The **ConnectX React Native SDK** is a React Native library designed to simplify
 ## Installation
 
 ```sh
-npm install connect-x-react-native-sdk
+npm install connect-x-react-native-sdk react-native-device-info @react-native-community/netinfo
 
 #or
 
-yarn add connect-x-react-native-sdk
+yarn add connect-x-react-native-sdk react-native-device-info @react-native-community/netinfo
 ```
 
 ## Usage
