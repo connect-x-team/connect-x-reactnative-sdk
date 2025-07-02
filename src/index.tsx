@@ -154,7 +154,7 @@ export class ConnectXMobileSdk {
       cx_networkType: this.networkType,
       cx_appVersion: appVersion,
       cx_appBuild: buildNumber,
-      cx_libraryVersion: '1.0.8',
+      cx_libraryVersion: '1.0.9',
       cx_libraryPlatform: 'React Native',
       cx_deviceId: uniqueId,
       cx_fingerprint: deviceId,
