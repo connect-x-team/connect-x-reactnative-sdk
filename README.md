@@ -26,6 +26,16 @@ npm install connect-x-react-native-sdk react-native-device-info @react-native-co
 yarn add connect-x-react-native-sdk react-native-device-info @react-native-community/netinfo
 ```
 
+### Note for legacy version
+```sh
+npm install connect-x-react-native-sdk react-native-device-info @react-native-community/netinfo
+
+#or
+
+yarn add connect-x-react-native-sdk react-native-device-info @react-native-community/netinfo
+```
+
+
 ## Usage
 
 ### 1. Import the Library

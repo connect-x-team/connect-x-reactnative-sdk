@@ -35,6 +35,10 @@ android {
     targetSdkVersion getExtOrIntegerDefault("targetSdkVersion")
   }
 
+  kotlinOptions {
+        jvmTarget = "11"
+    }
+
   buildFeatures {
     buildConfig true
   }
