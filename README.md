@@ -28,13 +28,12 @@ yarn add connect-x-react-native-sdk react-native-device-info @react-native-commu
 
 ### Note for legacy version
 ```sh
-npm install connect-x-react-native-sdk react-native-device-info @react-native-community/netinfo
+npm install connect-x-react-native-sdk@1.0.12-legacy react-native-device-info @react-native-community/netinfo
 
 #or
 
-yarn add connect-x-react-native-sdk react-native-device-info @react-native-community/netinfo
+yarn add connect-x-react-native-sdk@1.0.12-legacy react-native-device-info @react-native-community/netinfo
 ```
-
 
 ## Usage
 
