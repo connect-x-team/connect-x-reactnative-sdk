@@ -10,6 +10,7 @@ import {
   View,
 } from 'react-native';
 import { ConnectXMobileSdk } from 'connect-x-react-native-sdk';
+import { version } from '../../package.json';
 
 // ponytail: the SDK reports HTTP results only via console (cx* resolve true even on 4xx), so capture it
 const logs: string[] = [];
@@ -200,7 +201,7 @@ export default function App(props: {
     >
       <Text style={styles.title}>ConnectX Tracking Tester</Text>
       <Text style={styles.hint}>
-        ทดสอบทุก function ของ connect-x-react-native-sdk
+        ทดสอบทุก function ของ connect-x-react-native-sdk v{version}
       </Text>
 
       {field('Organize ID', org, setOrg)}
