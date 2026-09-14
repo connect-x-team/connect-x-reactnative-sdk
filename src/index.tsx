@@ -14,8 +14,8 @@ export class ConnectXMobileSdk {
   private organizeId: string = '';
   // private deviceType: string = '';
   private domainPrefix: string = 'backend';
-  private networkType: { key: string; value: string } = {
-    key: 'Other',
+  private networkType: { label: string; value: string } = {
+    label: 'Other',
     value: 'other',
   };
   // private netInfo = useNetInfo();
@@ -86,16 +86,14 @@ export class ConnectXMobileSdk {
     });
   }
 
+  // Same picklist as the Flutter SDK: {label, value}, only cellular / wifi / other
   private formatNetworkType(type: NetInfoStateType): {
-    key: string;
+    label: string;
     value: string;
   } {
-    if (!type || type === 'none' || type === 'unknown' || type === 'other') {
-      return { key: 'Other', value: 'other' };
-    }
-    // Capitalize the first letter for the key, and use the original for the value
-    const key = type.charAt(0).toUpperCase() + type.slice(1);
-    return { key, value: type };
+    if (type === 'cellular') return { label: 'Cellular', value: 'cellular' };
+    if (type === 'wifi') return { label: 'Wifi', value: 'wifi' };
+    return { label: 'Other', value: 'other' };
   }
 
   // Method to set up network listener
@@ -154,7 +152,7 @@ export class ConnectXMobileSdk {
       cx_networkType: this.networkType,
       cx_appVersion: appVersion,
       cx_appBuild: buildNumber,
-      cx_libraryVersion: '1.0.9',
+      cx_libraryVersion: '1.0.13-legacy',
       cx_libraryPlatform: 'React Native',
       cx_deviceId: uniqueId,
       cx_fingerprint: deviceId,
