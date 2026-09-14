@@ -18,5 +18,8 @@ class MainActivity : ReactActivity() {
    * which allows you to enable New Architecture with a single boolean flags [fabricEnabled]
    */
   override fun createReactActivityDelegate(): ReactActivityDelegate =
-      DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
+      object : DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled) {
+        // ponytail: `adb shell am start --es token ...` prefills the tester; emulator paste is unreliable
+        override fun getLaunchOptions() = intent.extras
+      }
 }
